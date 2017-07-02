@@ -41,7 +41,7 @@ public class GroupAnagrams {
         }
     }
 
-    static int anagrams(int a, int b, String A[])
+    public static int anagrams(int a, int b, String A[])
     {
         int count = 0;
         char A1[] = A[a].toLowerCase().toCharArray();
