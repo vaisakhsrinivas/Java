@@ -44,8 +44,15 @@ public class CountElements {
                     }
 
                 }
-                System.out.print(count + ",");
+                if(i == arraysize-1) {
+                    System.out.print(count + "");
+                }
+                else
+                {
+                    System.out.print(count + ",");
+                }
                 count = 0;
+                //System.out.println();
             }
 
             tc--;
