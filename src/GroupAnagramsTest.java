@@ -12,6 +12,7 @@ class GroupAnagramsTest extends GroupAnagrams {
 
         GroupAnagrams ga = new GroupAnagrams();
         assertEquals(1,ga.anagrams(0,0, new String[]{"act, cat, tac"}));
+
     }
 
 }
