@@ -5,48 +5,42 @@ import java.util.Scanner;
  */
 public class UnsortedArray {
 
-    public static void main(String[] args)
-    {
-        int t, t1;
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int tc = sc.nextInt();
 
         while (tc >0){
 
-            int arraysize = sc.nextInt();
-            int[] a = new int [arraysize];
+            int n = sc.nextInt();
+            int[] arr = new int [n];
 
-            for(int i=0; i<arraysize; i++)
-            {
-                a[i] = sc.nextInt();
+            for(int i=0; i<n; i++) {
+                arr[i] = sc.nextInt();
             }
 
-            int mid = a.length/2;
-
-            int temp = a[mid];
-
-
-            for(int i=0; i<mid; i++){
-                if(a[i] > temp)
-                {
-                    t = a[i];
-                    a[i] =  temp;
-                    temp = t;
+            for(int i=1; i<n-1; i++){
+                if(arr[i]>=arr[i-1] && arr[i]<=arr[i+1]){
+                    boolean left = true;
+                    for(int j=i-2; j>=0; j--){
+                        if(arr[i]<arr[j]){
+                            left=false;
+                        }
+                    }
+                    boolean right = true;
+                    if(left){
+                        for(int k=i+2; k<n; k++){
+                            if(arr[i]>arr[k]){
+                                right = false;
+                            }
+                        }
+                    }
+                    if(left && right){
+                        System.out.println(arr[i]);
+                        break;
+                    }
                 }
             }
-
-            for(int i=mid+1; i<a.length; i++)
-            {
-                if (a[i] < temp)
-                {
-                    t1 = a[i];
-                    a[i] = temp;
-                    temp = t1;
-                }
-            }
-
-            System.out.print(temp);
-
+            System.out.print(-1);
             tc--;
         }
     }
