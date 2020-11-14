@@ -5,8 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.swing.plaf.synth.SynthEditorPaneUI;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by vaisakh on 08/06/17.
@@ -17,7 +19,7 @@ public class FireFox {
         System.setProperty("webdriver.gecko.driver","//Users//vaisakh//Downloads//geckodriver");
         WebDriver driver = new FirefoxDriver();
         driver.get("http://www.qaclickacademy.com");
-        //driver.wait(2000);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         String title = driver.getTitle();
         String url = driver.getCurrentUrl();
         String pagesource = driver.getPageSource();
