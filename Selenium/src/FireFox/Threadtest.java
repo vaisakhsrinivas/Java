@@ -30,7 +30,7 @@ class sampledemo implements Runnable {
 
 }
 
-public class threadtest {
+public class Threadtest {
 
     public static void main (String [] args) {
 
