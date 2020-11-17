@@ -15,25 +15,25 @@ public class AutomatedTest {
         System.setProperty("webdriver.chrome.driver", "//Users//vaisakh//Downloads//chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.get("http://s3.amazonaws.com/co.tulip.cdn/memtracking/index.html");
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.navigate().refresh();
         String before_selection = driver.findElement(By.id("statNumCrashes")).getText();
-        System.out.print(before_selection);
+        System.out.println(before_selection);
         driver.findElement(By.id("filterPageData")).click();
-        driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
         String after_selection = driver.findElement(By.id("statNumCrashes")).getText();
-        System.out.print(after_selection);
+        System.out.println(after_selection);
         if (before_selection.equals(after_selection)){
-            System.out.print("No update");
+            System.out.println("No update");
         }
         else
         {
-            System.out.print("updated stats" + after_selection);
+            System.out.println("updated stats" + after_selection);
         }
         driver.findElement(By.id("filterPageAnalytics")).click();
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
         String after_analytics = driver.findElement(By.id("statNumCrashes")).getText();
-        System.out.print(after_analytics);
+        System.out.println(after_analytics);
         driver.close();
     }
 }
