@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,24 +16,18 @@ public class AutomatedTest {
         System.setProperty("webdriver.chrome.driver", "//Users//vaisakh//Downloads//chromedriver");
         WebDriver driver = new ChromeDriver();
         driver.get("http://s3.amazonaws.com/co.tulip.cdn/memtracking/index.html");
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.navigate().refresh();
+        Thread.sleep(2000);
         String before_selection = driver.findElement(By.id("statNumCrashes")).getText();
         System.out.println(before_selection);
         driver.findElement(By.id("filterPageData")).click();
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+        Thread.sleep(2000);
         String after_selection = driver.findElement(By.id("statNumCrashes")).getText();
         System.out.println(after_selection);
-        if (before_selection.equals(after_selection)){
-            System.out.println("No update");
-        }
-        else
-        {
-            System.out.println("updated stats" + after_selection);
-        }
+        Assert.assertTrue(after_selection != before_selection);
         driver.findElement(By.id("filterPageAnalytics")).click();
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+        Thread.sleep(2000);
         String after_analytics = driver.findElement(By.id("statNumCrashes")).getText();
+        Assert.assertTrue(after_selection != after_analytics);
         System.out.println(after_analytics);
         driver.close();
     }
