@@ -15,7 +15,6 @@ public class NegativeTestCase {
         driver.get("https://www.fortinet.com/");
         Thread.sleep(1000);
         driver.findElement(By.className("site-search--submit")).click();
-        //driver.findElement(By.className("site-search--input")).click();
         driver.findElement(By.className("site-search--input")).sendKeys(" ");
         driver.findElement(By.className("site-search--submit")).click();
         Thread.sleep(1000);
